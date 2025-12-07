@@ -5,11 +5,11 @@
 ## 🏗️ Phần 1: Cơ chế Cơ bản (Movement & Spawning)
 *Mục tiêu: Làm cho các khối gạch xuất hiện và di chuyển được.*
 
-- [ ] **Tạo Spawner (Bộ sinh khối):**
+- [x] **Tạo Spawner (Bộ sinh khối):**
     - Tạo script `Spawner.cs`.
     - Viết hàm `SpawnNewTetromino()` để sinh ngẫu nhiên 1 trong 7 prefab tại đỉnh màn hình.
 - [ ] **Xử lý Input (Điều khiển):**
-    - Tạo script `Piece.cs`.
+    - Tạo script `TetrominoController.cs`.
     - Nhận nút bấm (Mũi tên Trái, Phải) để thay đổi `transform.position`.
     - Nhận nút (Mũi tên Lên) để `transform.Rotate` (Xoay 90 độ).
 - [ ] **Tự động rơi (Auto Fall):**
@@ -39,7 +39,7 @@
     - Quét lưới từ dưới lên trên.
     - Nếu phát hiện hàng nào đã lấp đầy (đủ 10 ô) -> Xóa các GameObject gạch ở hàng đó.
     - **Gravity (Rơi bù):** Kéo tất cả các hàng nằm phía trên hàng vừa xóa tụt xuống 1 nấc để lấp chỗ trống.
-- [x] **Spawn Next (Lượt mới):**
+- [] **Spawn Next (Lượt mới):**
     - Sau khi dọn hàng xong, gọi lại `Spawner` để thả khối mới.
 
 ## 🎮 Phần 4: Giao diện & Kết thúc (UI & Polish)
