@@ -76,7 +76,7 @@ public class TetrominoController : MonoBehaviour
                 {
                     FindFirstObjectByType<Spawner>().SpawnNewTetromino();
                 }
-            }
+            }   
             previousTime = Time.time;
         }
     }

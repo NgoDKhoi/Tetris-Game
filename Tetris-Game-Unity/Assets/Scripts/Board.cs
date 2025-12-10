@@ -113,7 +113,6 @@ public class Board : MonoBehaviour
             }
         }
     }
-
     #endregion XỬ LÝ DÒNG
 
 
