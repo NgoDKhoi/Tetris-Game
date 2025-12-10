@@ -7,39 +7,35 @@
 
 - [x] **Tạo Spawner (Bộ sinh khối):**
     - Tạo script `Spawner.cs`.
-    - Viết hàm `SpawnNewTetromino()` để sinh ngẫu nhiên 1 trong 7 prefab tại đỉnh màn hình.
-- [ ] **Xử lý Input (Điều khiển):**
+       + Viết hàm `SpawnNewTetromino()` để sinh ngẫu nhiên 1 trong 7 prefab tại vị trí của Spawner.
+- [x] **Xử lý Input (Điều khiển):**
     - Tạo script `TetrominoController.cs`.
-    - Nhận nút bấm (Mũi tên Trái, Phải) để thay đổi `transform.position`.
-    - Nhận nút (Mũi tên Lên) để `transform.Rotate` (Xoay 90 độ).
-- [ ] **Tự động rơi (Auto Fall):**
+    - Nhận input từ bàn phím của người chơi để thay đổi `transform.position`hoặc `transform.Rotate`
+- [x] **Tự động rơi (Auto Fall):**
     - Sử dụng bộ đếm thời gian (`Time.time`) để khối tự động rơi xuống 1 ô sau mỗi khoảng thời gian (ví dụ: 1 giây).
 
 ## 🧠 Phần 2: Hệ thống Lưới & Va chạm (Core Grid Logic)
-*Mục tiêu: Xử lý logic gạch, tuyệt đối không dùng Physics/Rigidbody của Unity để tránh lỗi vật lý không mong muốn.*
+*Mục tiêu: Tạo `board.cs` và xử lý logic gạch trong đó*
 
-- [ ] **Thiết lập Lưới ảo (The Grid):**
-    - Hình dung lưới toạ độ chuẩn (thường là Rộng 10 x Cao 20).
-    - Tạo logic để lưu trữ trạng thái: Tại toạ độ (x,y) này đã có gạch chưa?
-- [ ] **Kiểm tra biên (Boundary Check):**
-    - Viết hàm `IsValidMove()` để kiểm tra trước khi di chuyển.
-    - Chặn không cho gạch đi ra ngoài mép trái (x < 0) hoặc mép phải (x > 9).
-    - Chặn không cho gạch đi xuyên xuống dưới đáy sàn (y < 0).
-- [ ] **Kiểm tra va chạm gạch (Block Collision):**
-    - Cập nhật hàm `IsValidMove()`: Trả về `false` nếu vị trí mới dự định đi tới trùng với một khối gạch cũ đã nằm yên.
+- [x] **Thiết lập Lưới ảo (The Grid):**
+    - Tạo `board.cs`
+    - Tạo mảng 2 chiều `grid = [10,20]`
+- [x] **Kiểm tra biên (Boundary Check):**
+    - Viết hàm `IsValidPosition()` kiểm tra vị trí có hợp lệ không ?
+- [x] **Kiểm tra va chạm gạch (Block Collision):**
+    - Cập nhật hàm `IsValidPosition()`: Trả về `false` nếu vị trí mới dự định đi tới trùng với một khối gạch cũ đã nằm yên.
+- [x] **Khóa gạch (Locking):** 
+    - Sau khi hoàn tất di chuyển thì vô hiệu hóa script điều khiển của khối đó.
+    - Viết hàm `AddToGrid()` để lưu trữ các khối vào mảng grid
 
 ## ♻️ Phần 3: Vòng lặp Game (Game Loop)
-*Mục tiêu: Xử lý chuỗi sự kiện xảy ra khi một khối gạch chạm đất.*
+*Mục tiêu: Xử lý chuỗi sự kiện xảy ra khi một khối gạch chạm đất*
 
-- [ ] **Khóa gạch (Locking):**
-    - Khi gạch chạm đáy hoặc chạm gạch khác và không thể đi xuống nữa -> Dừng di chuyển.
-    - Vô hiệu hóa script điều khiển của khối đó.
-    - Lưu vị trí của 4 ô vuông con (children) vào hệ thống Lưới ảo (Grid).
-- [ ] **Xử lý hàng (Line Clearing):**
-    - Quét lưới từ dưới lên trên.
-    - Nếu phát hiện hàng nào đã lấp đầy (đủ 10 ô) -> Xóa các GameObject gạch ở hàng đó.
-    - **Gravity (Rơi bù):** Kéo tất cả các hàng nằm phía trên hàng vừa xóa tụt xuống 1 nấc để lấp chỗ trống.
-- [] **Spawn Next (Lượt mới):**
+- [x] **Xử lý hàng:**
+    - Quét lưới từ dưới lên trên. 
+    - Nếu phát hiện hàng nào đã lấp đầy -> Xóa các GameObject gạch ở hàng đó.
+    - Kéo tất cả các hàng nằm phía trên hàng vừa xóa tụt xuống 1 nấc để lấp chỗ trống.
+- [x] **Spaw teromino mới:**
     - Sau khi dọn hàng xong, gọi lại `Spawner` để thả khối mới.
 
 ## 🎮 Phần 4: Giao diện & Kết thúc (UI & Polish)

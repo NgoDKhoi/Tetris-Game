@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234337347186099089}
   - component: {fileID: 7919034031149144708}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Orange (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4095466815926690618}
   - component: {fileID: 2880333217391687133}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Orange (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5215672124917925518}
   - component: {fileID: 647033666786998049}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8175510445041236447}
   - component: {fileID: 180049563859978976}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Orange (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8384735601515704778}
   - component: {fileID: -4414875504452696489}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Tetromino_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5215672124917925518}
@@ -408,5 +408,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d6f3e562029154bae6107ac151496b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TetrominoController
-  gridSize: 0.5
+  gridSize: 1
   fallTime: 1
