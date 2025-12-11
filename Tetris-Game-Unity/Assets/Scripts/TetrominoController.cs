@@ -22,8 +22,12 @@ public class TetrominoController : MonoBehaviour
         // Check Game Over ngay khi sinh ra
         if (!Board.IsValidPosition(transform))
         {
-            Debug.Log("GAME OVER");
-            // Destroy(gameObject);
+            // Gọi GameManager để bật bảng thua lên
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.GameOver();
+            }
+            Destroy(gameObject);
         }
     }
 
@@ -72,11 +76,11 @@ public class TetrominoController : MonoBehaviour
                 Board.AddToGrid(transform); // Add tetromino vào data
                 Board.HandleAllLines(); // Giải quyết các dòng nếu có full
 
-                if (FindFirstObjectByType<Spawner>() != null)
+                if (FindFirstObjectByType<Spawner>() != null && FindFirstObjectByType<Spawner>().enabled)
                 {
                     FindFirstObjectByType<Spawner>().SpawnNewTetromino();
                 }
-            }   
+            }       
             previousTime = Time.time;
         }
     }

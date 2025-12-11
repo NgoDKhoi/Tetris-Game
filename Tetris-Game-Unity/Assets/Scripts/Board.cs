@@ -28,7 +28,7 @@ public class Board : MonoBehaviour
             int y = Mathf.RoundToInt(child.position.y + offsetY);
 
             // Kiểm tra biên
-            if (x < 0 || x >= width || y < 0) {
+            if (x < 0 || x >= width || y < 0 || y>= height) {
                 Debug.Log($"LỖI VA CHẠM: Child[{child.position.x}, {child.position.y}] và Grid[{x}, {y}]");
                 return false;
             }
@@ -103,6 +103,7 @@ public class Board : MonoBehaviour
 
     public static void HandleAllLines()
     {
+        int linesCleared = 0;
         for (int y = 0; y < height; y++)
         {
             if (IsLineFull(y))
@@ -110,7 +111,12 @@ public class Board : MonoBehaviour
                 DeleteLine(y);
                 MoveAllLinesDown(y + 1);
                 y--;
+                linesCleared++;
             }
+        }
+        if (linesCleared > 0 && GameManager.instance != null)
+        {
+            GameManager.instance.AddScore(linesCleared);
         }
     }
     #endregion XỬ LÝ DÒNG

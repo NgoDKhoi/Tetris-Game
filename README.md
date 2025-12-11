@@ -1,4 +1,4 @@
-# 🗺️ Lộ Trình Phát Triển Game Tetris (Unity C#)
+# 🗺️ Lộ Trình Xây Dựng Game Tetris (Unity C#)
 
 Đây là kế hoạch chi tiết chia làm 4 giai đoạn để hoàn thành game Tetris từ những Prefab có sẵn.
 
@@ -41,11 +41,14 @@
 ## 🎮 Phần 4: Giao diện & Kết thúc (UI & Polish)
 *Mục tiêu: Hoàn thiện trò chơi với tính năng tính điểm và thắng thua.*
 
-- [ ] **Tính điểm (Scoring):**
+- [x] **Tính điểm (Scoring):**
     - Tạo logic tính điểm: 1 hàng = 100đ, 4 hàng (Tetris) = 800đ.
     - Hiển thị điểm số lên màn hình bằng UI Text (TextMeshPro).
-- [ ] **Game Over:**
+- [x] **Game Over:**
     - Kiểm tra ngay khi vừa Spawn: Nếu vị trí xuất phát đã bị chặn bởi gạch cũ -> Thông báo Thua Game.
     - Hiển thị bảng "Play Again" để reload lại màn chơi.
 - [ ] **Next Piece UI (Nâng cao):**
     - Hiển thị trước hình dáng khối gạch tiếp theo ở góc màn hình để người chơi tính toán.
+
+
+
