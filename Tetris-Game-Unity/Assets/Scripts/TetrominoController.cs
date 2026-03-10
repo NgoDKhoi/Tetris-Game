@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class TetrominoController : MonoBehaviour
 {
     [Header("Cài đặt Di chuyển")]
-    public float fallTime = 1.0f;
+    public float fallTime = 1.0f; // Nếu không gán thì tự động là rơi 1s
 
     private float previousTime;
 

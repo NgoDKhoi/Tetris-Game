@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject gamePlayPanel; // Panel chứa điểm số
     public GameObject gameOverPanel; // Panel hiện ra khi thua
+    public GameObject gamePausePanel; // Panel hiện ra khi bấm PauseButtonq
 
     [Header("UI Elements")]
     public TextMeshProUGUI currentScoreText;    // Text hiển thị điểm lúc chơi
@@ -33,7 +34,8 @@ public class GameManager : MonoBehaviour
             
         // Thiết lập trạng thái ban đầu
         if (gamePlayPanel != null) gamePlayPanel.SetActive(true);
-        if (gameOverPanel != null) gameOverPanel.SetActive(false); // Ẩn bảng thua đi
+        if (gameOverPanel != null) gameOverPanel.SetActive(false); // Ẩn gameOverPanel
+        if (gamePausePanel != null) gamePausePanel.SetActive(false); // Ẩn gamePausePanel
 
         if (scoreToAddText != null) scoreToAddText.gameObject.SetActive(false);
 
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
         if (scoreToAddText != null)
         {
             scoreToAddText.text = "+" + pointsToAdd.ToString();
-            scoreToAddText.gameObject.SetActive(true); // Bật lên
+            scoreToAddText.gameObject.SetActive(true); // Bật lên   
 
             // Nếu đang có bộ đếm cũ thì dừng lại (reset timer)
             if (hideScoreCoroutine != null) StopCoroutine(hideScoreCoroutine);
@@ -110,6 +112,12 @@ public class GameManager : MonoBehaviour
     }
 
     // --- CÁC HÀM CHO BUTTON (Gắn vào nút trong Unity) ---
+    public void PauseGane()
+    {
+        Debug.Log("Nút Pause đã được bấm!");
+        if (gamePausePanel != null) gamePausePanel.SetActive(true);
+    }
+
     public void ReplayGame()
     {
         Debug.Log("Nút Replay đã được bấm!");
